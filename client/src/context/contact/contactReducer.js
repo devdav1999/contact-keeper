@@ -15,6 +15,12 @@ export default (state, action) => {
                 ...state, 
                 contacts:[...state.contacts, action.payload]
             };
+
+         case DELETE_CONTACT:
+            return{
+                ...state, 
+                contacts: state.contacts.filter(contact => contact.id != action.payload) //all contacts that are not the id
+            };
         default: 
             return state;
     }
